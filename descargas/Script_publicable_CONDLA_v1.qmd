@@ -1,0 +1,318 @@
+---
+title: "CONDLA - Construcción de los índices de condicionalidad"
+subtitle: "Script publicable: reconstruye los índices a partir de la base publicable de 49 variables"
+author: Florencia Antía, Cecilia Rossel, Sofía Karsaclian, Melisa Moreno
+format: html
+editor: visual
+warning: false
+---
+
+```{r}
+library(tidyverse)
+
+rm(list = ls())
+df <- read_csv("Base de datos con variables orig e indices cond y vague (49 variables) 2026.csv")
+```
+
+# Aggregation
+
+The indicator is composed of behavioural conditions, monitoring and sanctions. Each of these items have a maximum possible score of 7.
+
+For the overall indicator we will do a geometrical mean.
+
+## Behavioral Conditions
+
+### Education
+
+```{r}
+df <- df %>%
+  mutate(cond_edu = case_when(
+    edu_mat_asis_res_cond == 0 ~ 0,
+    edu_mat_asis_res_cond == 1 ~ 1,
+    edu_mat_asis_res_cond == 2 ~ 3,
+    edu_mat_asis_res_cond == 3 ~ 5,
+    edu_mat_asis_res_cond == 4 ~ 7,
+    edu_mat_asis_res_cond == 98 ~ 1,
+    edu_mat_asis_res_cond == 99 ~ NA_real_
+  ))
+```
+
+### Health
+
+For this dimension we considered which age groups were included as target population and weighed the items according to this.
+
+For children aged 6-18 and adults it is a binary variable given that there is not much possible variation on the frequency of check ups demanded.
+
+```{r}
+# Check-ups 0-2 yo
+df <- df %>%
+  mutate(
+    cond_sal_2 = case_when(
+      salud_cont2_cond == 0 ~ 0,
+      salud_cont2_cond == 1 ~ 1,
+      salud_cont2_cond == 2 ~ 4,
+      salud_cont2_cond == 3 ~ 7,
+      salud_cont2_cond == 98 ~ 1,
+      TRUE ~ NA_real_
+    ), # Check-ups 2-5 yo
+    cond_sal_2_5 = case_when(
+      salud_cont25_cond == 0 ~ 0,
+      salud_cont25_cond == 1 ~ 1,
+      salud_cont25_cond == 2 ~ 4,
+      salud_cont25_cond == 3 ~ 7,
+      salud_cont25_cond == 98 ~ 1,
+      TRUE ~ NA_real_
+    ), # Check-ups 6-18 yo
+    cond_sal_6_18 = case_when(
+      salud_cont618_cond == 0 ~ 0,
+      salud_cont618_cond %in% c(1, 2, 3) ~ 7,
+      salud_cont618_cond == 98 ~ 7,
+      TRUE ~ NA_real_
+    ), # Check-ups prenatal
+    cond_sal_prenatal = case_when(
+      salud_cont_pre_nat_cond == 0 ~ 0,
+      salud_cont_pre_nat_cond == 1 ~ 4,
+      salud_cont_pre_nat_cond == 2 ~ 7,
+      salud_cont_pre_nat_cond == 98 ~ 4,
+      TRUE ~ NA_real_
+    ), # Check-ups adults
+    cond_sal_adultos = case_when(
+      salud_cont_adult_cond == 0 ~ 0,
+      salud_cont_adult_cond %in% c(1, 2, 3) ~ 7,
+      salud_cont_adult_cond == 98 ~ 7,
+      TRUE ~ NA_real_
+    ), # Immunization card
+    cond_sal_vacuna = case_when(
+      salud_carn_vac_cond == 0 ~ 0,
+      salud_carn_vac_cond == 1 ~ 7,
+      salud_carn_vac_cond == 99 ~ NA_real_
+    )
+  )
+```
+
+**Health requirements indicator (update 2022).**
+
+Addition of the score on each health behaviour. Because they all have the same weight for the aggregate health behaviour indicator, we divide the added score between the number of age groups included in the targeted population, as to make them comparable. *count_cond_sal* is built from the sum of the number of times the behavioral condition appears in the base for each case.
+
+```{r}
+df <- df %>%
+    mutate(
+    # counts if there is a conditionality (not NA and >0)
+    count_cond_sal_2 = ifelse(!is.na(cond_sal_2) & cond_sal_2 > 0, 1, 0),
+    count_cond_sal_2_5 = ifelse(!is.na(cond_sal_2_5) & cond_sal_2_5 > 0, 1, 0),
+    count_cond_sal_6_18 = ifelse(!is.na(cond_sal_6_18) & cond_sal_6_18 > 0, 1, 0),
+    count_cond_sal_prenatal = ifelse(!is.na(cond_sal_prenatal) & cond_sal_prenatal > 0, 1, 0),
+    count_cond_sal_adultos = ifelse(!is.na(cond_sal_adultos) & cond_sal_adultos > 0, 1, 0),
+    count_cond_sal_vacuna = ifelse(!is.na(cond_sal_vacuna) & cond_sal_vacuna > 0, 1, 0),
+    # suma del número de condiciones
+    count_cond_sal = count_cond_sal_2 + count_cond_sal_2_5 + count_cond_sal_6_18 +
+      count_cond_sal_prenatal + count_cond_sal_adultos + count_cond_sal_vacuna
+  )
+
+df <- df %>%
+  mutate(
+    # suma del puntaje de todas las condicionalidades en salud
+    score_cond_health = rowSums(select(., starts_with("cond_sal"))),
+    # dividido entre el número de condiciones efectivas
+    cond_health = score_cond_health / count_cond_sal,
+    # Entre 0 y 1
+    cond_health_ind = cond_health * (1/7)
+  )
+```
+
+### Workshops and Labour
+
+```{r}
+# WORKSHOPS
+df <- df %>%
+  mutate(cond_workshops = case_when(
+    lab_tall_cond == 0 ~ 0,
+    lab_tall_cond == 1 ~ 7,
+    lab_tall_cond == 99 ~ NA_real_
+  ))
+
+# LABOUR
+df <- df %>%
+  mutate(
+    lab_req_cond = as.numeric(lab_req_cond),  # Ensure Lab_Req_Cond is numeric
+    cond_labour = case_when(
+      lab_req_cond == 0 ~ 0,
+      lab_req_cond == 1 ~ 1,
+      lab_req_cond == 2 ~ 4,
+      lab_req_cond %in% c(3, 4) ~ 7,
+      lab_req_cond == 99 ~ NA_real_
+    )
+  )
+```
+
+### Indicator - Behavior
+
+```{r}
+df <- df %>%
+  mutate(
+    cond_edu_weight = cond_edu * 0.455,
+    cond_health_weight = cond_health * 0.455,
+    cond_workshops_weight = cond_workshops * 0.045,
+    cond_labour_weight = cond_labour * 0.045,
+
+    behaviour = rowSums(cbind(cond_edu_weight, cond_health_weight, cond_workshops_weight, cond_labour_weight), na.rm = TRUE),
+
+    behaviour_ind = behaviour*(1/7)
+  )
+```
+
+## Monitoring
+
+```{r}
+df <- df %>%
+  mutate(
+    freq = case_when(
+      # Frecuencia monitoreo
+      frec_cont_mon == 0 ~ 0,
+      frec_cont_mon == 1 | frec_cont_mon == 98 ~ 1,
+      frec_cont_mon == 2 ~ 3,
+      frec_cont_mon == 3 | frec_cont_mon == 4 ~ 5,
+      frec_cont_mon == 5 ~ 7,
+      frec_cont_mon == 99 ~ NA_real_
+    ),
+    # MONITORING INDICATOR (just with monitoring frequency - 12/22 update)
+    monitoring_ind = freq * (1/7)
+  )
+```
+
+## Sanctions
+
+### Sanctions Indicator (Dic. 2022)
+
+```{r}
+# Recodificar 98 -> 1 y 99 -> NA en todas las variables de sanción (edu, salud, otras)
+sanc_vars <- grep("(1er_inc_sanc|2do_inc_sanc|3er_inc_sanc|mas_severa_sanc)$", names(df), value = TRUE)
+
+df <- df %>%
+  mutate(across(all_of(sanc_vars),
+                ~ ifelse(. == 98, 1, ifelse(. == 99, NA, .))))
+
+# Dejar en missing la sanción si no había condicionalidad asociada
+df <- df %>%
+  mutate(across(c(edu_1er_inc_sanc, edu_2do_inc_sanc, edu_mas_severa_sanc),
+                ~ ifelse(edu_mat_asis_res_cond == 0, NA, .)),
+         across(c(salud_2_1er_inc_sanc, salud_2_2do_inc_sanc, salud_2_mas_severa_sanc),
+                ~ ifelse(salud_cont2_cond == 0, NA, .)),
+         across(c(salud_25_1er_inc_sanc, salud_25_2do_inc_sanc, salud_25_mas_severa_sanc),
+                ~ ifelse(salud_cont25_cond == 0, NA, .)),
+         across(c(salud_618_1er_inc_sanc, salud_618_2do_inc_sanc, salud_618_mas_severa_sanc),
+                ~ ifelse(salud_cont618_cond == 0, NA, .)),
+         across(c(salud_pre_nat_1er_inc_sanc, salud_pre_nat_2do_inc_sanc, salud_pre_nat_mas_severa_sanc),
+                ~ ifelse(salud_cont_pre_nat_cond == 0, NA, .)),
+         across(c(salud_adult_1er_inc_sanc, salud_adult_2do_inc_sanc, salud_adult_mas_severa_sanc),
+                ~ ifelse(salud_cont_adult_cond == 0, NA, .)),
+         across(c(otras_cond_1er_inc_sanc, otras_cond_2do_inc_sanc, otras_cond_mas_severa_sanc),
+                ~ ifelse(lab_req_cond == 0 & lab_tall_cond == 0, NA, .)))
+# Para el bloque "otras", la condición usada es lab_req_cond == 0 & lab_tall_cond == 0,
+# a diferencia de los demás bloques, que usan una variable de "existencia de condición"
+# distinta a la de sanción (p. ej. edu_mat_asis_res_cond)
+
+# Asegurar tipo numérico (esta columna venía como character en la base,
+# por mezclar el 1 numérico del recode anterior con el resto de los valores)
+df$salud_pre_nat_1er_inc_sanc <- as.numeric(df$salud_pre_nat_1er_inc_sanc)
+
+# EDUCATION
+df <- df %>%
+  mutate(sanc_edu = (edu_1er_inc_sanc + edu_2do_inc_sanc + edu_mas_severa_sanc) / 21) # normalizado 0-1
+
+# HEALTH
+# suma de las sanciones a cada grupo por instancias, dividido por el número efectivo de grupos con condiciones
+df <- df %>%
+  mutate(
+    sanc_health_1 = ifelse(count_cond_sal == 0, NA, rowSums(select(df, starts_with("salud_") & ends_with("_1er_inc_sanc")), na.rm = TRUE) / (count_cond_sal * 7)),
+    sanc_health_2 = ifelse(count_cond_sal == 0, NA, rowSums(select(df, starts_with("salud_") & ends_with("_2do_inc_sanc")), na.rm = TRUE) / (count_cond_sal * 7)),
+    sanc_health_most = ifelse(count_cond_sal == 0, NA, rowSums(select(df, starts_with("salud_") & ends_with("_mas_severa_sanc")), na.rm = TRUE) / (count_cond_sal * 7)),
+    sanc_health = ifelse(count_cond_sal == 0, NA, (sanc_health_1 + sanc_health_2 + sanc_health_most) / 3)
+  )
+
+# OTROS
+df <- df %>%
+  mutate(
+    sanc_otros = (otras_cond_1er_inc_sanc + otras_cond_2do_inc_sanc + otras_cond_mas_severa_sanc) / 21
+  )
+
+# OVERALL SANCTIONS INDEX
+df <- df %>%
+  mutate(
+    sanctions_ind = rowMeans(select(df, c("sanc_health", "sanc_edu", "sanc_otros")), na.rm = TRUE)
+  )
+```
+
+## Overall indicator
+
+```{r}
+df <- df %>%
+  mutate(
+    conditionality = (behaviour_ind * monitoring_ind * sanctions_ind)^(1/3)
+  )
+```
+
+### Vagueness of Rules
+
+```{r}
+# Behavioural requirements
+df <- df %>%
+  mutate(
+    precise_behaviour = case_when(
+      otros_det_exp_cond == 0 ~ 0,
+      otros_det_exp_cond == 1 ~ 0.5,
+      otros_det_exp_cond == 2 ~ 1
+    )
+  )
+
+# Monitoring
+df <- df %>%
+  mutate(
+    precise_monitoring = case_when(
+      det_exp_mon == 0 ~ 0,
+      det_exp_mon == 1 ~ 0.5,
+      det_exp_mon == 2 ~ 1
+    )
+  )
+
+# Sanctions (Education)
+df <- df %>%
+  mutate(
+    precise_sanctions_edu = case_when(
+      edu_det_exp_sanc == 0 ~ 0,
+      edu_det_exp_sanc == 1 ~ 0.5,
+      edu_det_exp_sanc == 2 ~ 1
+    )
+  )
+
+# Sanctions (Health & others)
+df <- df %>%
+  mutate(
+    precise_sanctions_health = case_when(
+      otros_det_exp_sanc == 0 ~ 0,
+      otros_det_exp_sanc == 1 ~ 0.5,
+      otros_det_exp_sanc == 2 ~ 1
+    )
+  )
+
+# Promedio de vaguedad por fila (programa-país-año)
+df <- df %>%
+  mutate(
+    av_vagueness = rowMeans(
+      across(c(precise_behaviour, precise_monitoring,
+               precise_sanctions_edu, precise_sanctions_health)),
+      na.rm = TRUE
+    )
+  )
+```
+
+# Base final (49 variables)
+
+```{r}
+df_reducido <- df %>%
+  select(1:which(names(df) == "grupos_po"),
+         conditionality, behaviour_ind, monitoring_ind, sanctions_ind, av_vagueness,
+         precise_behaviour, precise_monitoring, precise_sanctions_edu, precise_sanctions_health)
+
+write_csv(df_reducido, "Base de datos con variables orig e indices cond y vague (49 variables) 2026.csv")
+```
