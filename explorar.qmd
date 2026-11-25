@@ -30,13 +30,33 @@ anoMin = d3.min(clean, d => d.ano)
 anoMax = d3.max(clean, d => d.ano)
 ```
 
-<details open>
-<summary><strong>Filters</strong></summary>
+::: {.columns}
+
+::: {.column width="25%"}
+**Chart**
 
 ```{ojs}
 //| echo: false
-viewof paisesSeleccionados = Inputs.checkbox(paises, {label: "Country", value: paises})
+viewof chartType = Inputs.select(["Bars", "Lines"], {label: "View as", value: "Bars"})
 ```
+:::
+
+::: {.column width="35%"}
+**Country**
+
+<details>
+<summary>Select countries</summary>
+
+```{ojs}
+//| echo: false
+viewof paisesSeleccionados = Inputs.checkbox(paises, {value: paises})
+```
+
+</details>
+:::
+
+::: {.column width="35%"}
+**Years**
 
 ```{ojs}
 //| echo: false
@@ -47,13 +67,14 @@ viewof anoDesde = Inputs.range([anoMin, anoMax], {label: "From", step: 1, value:
 //| echo: false
 viewof anoHasta = Inputs.range([anoMin, anoMax], {label: "To", step: 1, value: anoMax})
 ```
+:::
+
+:::
 
 ```{ojs}
 //| echo: false
 rangoAnos = [Math.min(anoDesde, anoHasta), Math.max(anoDesde, anoHasta)]
 ```
-
-</details>
 
 ```{ojs}
 //| echo: false
@@ -70,14 +91,6 @@ snapshot = clean.filter(d =>
   d.ano === rangoAnos[1] &&
   d.conditionality !== null
 )
-```
-
-<details open>
-<summary><strong>Chart</strong></summary>
-
-```{ojs}
-//| echo: false
-viewof chartType = Inputs.select(["Bars", "Lines"], {label: "View as", value: "Bars"})
 ```
 
 ```{ojs}
@@ -108,8 +121,6 @@ chartType === "Bars"
           ]
         }))
 ```
-
-</details>
 
 <details>
 <summary><strong>Data table</strong></summary>
