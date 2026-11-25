@@ -4,4 +4,20 @@ title: "Descargas y réplica"
 
 # Descargas y réplica
 
-Contenido pendiente (Task 5 del plan de implementación).
+Todo lo que publicamos acá es de autoría propia del equipo CONDLA: la base codificada y sus índices, el codebook y el script que los calcula. No publicamos las fuentes primarias (legislación, manuales operativos, recortes de prensa) que usamos para codificar cada programa.
+
+## Archivos para descargar
+
+- [**Base de datos para explorar (CSV, 336×49)**](data/condla_indices.csv) — `condla_indices.csv`: las 36 variables codificadas más los 4 índices de severidad y los 5 de vaguedad, documentados en [Codebook y metodología](codebook.qmd). Mismo contenido que la base de réplica de abajo, solo con un nombre de archivo más corto (es la que usa la página [Explorar los datos](explorar.qmd)).
+- [**Base de datos para réplica (CSV)**](<descargas/Base%20de%20datos%20con%20variables%20orig%20e%20indices%20cond%20y%20vague%20%2849%20variables%29%202026.csv>) — mismo contenido, con el nombre de archivo original que espera el script de replicación (ver abajo).
+- [**Codebook completo (PDF)**](descargas/CONDLA_indices_codebook_v1.pdf) — `CONDLA_indices_codebook_v1.pdf`: la definición de cada una de las 49 columnas y la derivación matemática de los índices.
+- [**Script de replicación (Quarto/R)**](descargas/Script_publicable_CONDLA_v1.qmd) — `Script_publicable_CONDLA_v1.qmd`: reconstruye los 9 índices a partir de las 36 variables codificadas.
+
+## Cómo replicar el cálculo de los índices
+
+1. Instalar [R](https://cran.r-project.org/) y el paquete `tidyverse` (`install.packages("tidyverse")`). Opcionalmente, [RStudio](https://posit.co/download/rstudio-desktop/) o [Positron](https://positron.posit.co/) para abrir el `.qmd` con una interfaz.
+2. Descargar el **script** y la **base de datos para réplica** (los dos links marcados arriba) a una misma carpeta, sin cambiarles el nombre.
+3. Abrir `Script_publicable_CONDLA_v1.qmd` y renderizarlo (botón *Render* en RStudio/Positron, o `quarto render Script_publicable_CONDLA_v1.qmd` desde la terminal).
+4. El script recalcula las 9 columnas de índices (`cond_edu`, `cond_health`, ..., `conditionality`, `av_vagueness`) desde cero y las vuelve a escribir en el mismo CSV — el resultado debería ser idéntico al publicado acá.
+
+Dudas o pedidos de acceso a la base de origen (previa a la reducción a la muestra analítica): escribir a las investigadoras, ver [Equipo](equipo.qmd).
