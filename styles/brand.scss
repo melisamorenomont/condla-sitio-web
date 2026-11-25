@@ -32,3 +32,16 @@ $footer-fg: #ffffff;
 .navbar-brand {
   font-weight: 700;
 }
+
+// The 3-column filter row in Explore the Data (.columns/.column, from
+// Quarto) doesn't stack on its own at narrow widths; without this it
+// stays 3-across and each column gets too little room on a phone.
+@media (max-width: 700px) {
+  .columns {
+    flex-direction: column;
+  }
+  .column {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+}
