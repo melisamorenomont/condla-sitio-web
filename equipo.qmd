@@ -1,38 +1,36 @@
 ---
-title: "Equipo"
+title: "Team"
 ---
 
-# Equipo
+## Principal investigators
 
-## Investigadoras principales
-
-**Cecilia Rossel** — Doctora en Gobierno y Administración Pública (Instituto Ortega y Gasset/Universidad Complutense de Madrid), Profesora Asociada en el Departamento de Ciencias Sociales de la Universidad Católica del Uruguay. Su investigación aborda la economía política del bienestar y las políticas sociales, la relación entre ciudadanos y estado, y la protección social, el bienestar, la vulnerabilidad y la desigualdad en América Latina.
+**Cecilia Rossel** — PhD in Government and Public Administration (Instituto Ortega y Gasset/Universidad Complutense de Madrid), Associate Professor in the Department of Social Sciences at Universidad Católica del Uruguay. Her research addresses the political economy of welfare and social policy, the relationship between citizens and the state, and social protection, welfare, vulnerability and inequality in Latin America.
 cecilia.rossel@ucu.edu.uy · [ceciliarossel.com](https://ceciliarossel.com)
 
-**Florencia Antía** — Doctora en Ciencia Política (Universidade Estadual de Rio de Janeiro), Profesora Adjunta en el Departamento de Ciencia Política, Facultad de Ciencias Sociales, Universidad de la República, Uruguay. Trabaja en economía política comparada, con foco en América Latina: políticas sociales, políticas de redistribución y la relación entre política y justicia.
+**Florencia Antía** — PhD in Political Science (Universidade Estadual de Rio de Janeiro), Associate Professor in the Department of Political Science, Facultad de Ciencias Sociales, Universidad de la República, Uruguay. She works on comparative political economy, with a focus on Latin America: social policy, redistributive policy, and the relationship between politics and justice.
 florencia.antia@cienciassociales.edu.uy
 
-## Equipo de construcción de la base
+## Dataset team
 
-Sofía Karsaclian, Sebastián Pineyro y Melisa Moreno participaron en el desarrollo de la base CONDLA y la construcción de los índices.
+Sofía Karsaclian, Sebastián Pineyro, and Melisa Moreno contributed to building the CONDLA dataset and constructing the indices.
 
-## Colaboradores
+## Collaborators
 
-**Santiago López Cariboni** — PhD en Ciencia Política (University of Essex), Profesor Agregado, Departamento de Economía, Facultad de Ciencias Sociales, Universidad de la República. Economía política internacional y comparada: comercio internacional y política doméstica, informalidad laboral y políticas sociales, transferencias informales, partidos y elecciones, métodos de investigación.
+**Santiago López Cariboni** — PhD in Political Science (University of Essex), Associate Professor, Department of Economics, Facultad de Ciencias Sociales, Universidad de la República. International and comparative political economy: international trade and domestic politics, labor informality and social policy, informal transfers, parties and elections, research methods.
 santiago.lopez@cienciassociales.edu.uy · [lopez-cariboni.info](https://www.lopez-cariboni.info)
 
-**Pilar Manzi** — Licenciada en Ciencia Política (Universidad Católica del Uruguay), Magíster y candidata a doctora en Ciencia Política (Northwestern University). Economía política de la desigualdad, preferencias por redistribución y políticas sociales.
+**Pilar Manzi** — BA in Political Science (Universidad Católica del Uruguay), MA and PhD candidate in Political Science (Northwestern University). Political economy of inequality, preferences for redistribution, and social policy.
 pilar.manzi@u.northwestern.edu
 
-**Irene Menéndez González** — Doctora por la Universidad de Oxford, profesora en el School of Global and Public Affairs, IE University, Madrid. Economía política internacional y comparada: globalización, estado de bienestar, mercados laborales, instituciones electorales y representación política.
-irene.menendez@ie.edu · [sitio web](https://sites.google.com/site/irenemenendez/)
+**Irene Menéndez González** — PhD from the University of Oxford, professor at the School of Global and Public Affairs, IE University, Madrid. International and comparative political economy: globalization, the welfare state and labor markets, electoral institutions and political representation.
+irene.menendez@ie.edu · [website](https://sites.google.com/site/irenemenendez/)
 
-**Cecilia Osorio** — Doctora en Ciencia Política, especialista en condicionalidades en Chile; colaboró en la revisión experta de la base CONDLA.
+**Cecilia Osorio** — PhD in Political Science, specialist in conditionalities in Chile; contributed to the expert review of the CONDLA dataset.
 
-## Revisión experta de la base por país
+## Country expert review
 
-Agradecemos la colaboración de Mora Straschnoy (Argentina), Cecilia Osorio (Chile), Andrés Mora (Colombia), Nora Nagels (Perú), Reveca Chávez, Rocío Duarte y Cinthia Arrua (Paraguay), Flavia Marco (Bolivia), Humberto Soto (Guatemala) y María Elena Quilodrán (Honduras).
+We thank Mora Straschnoy (Argentina), Cecilia Osorio (Chile), Andrés Mora (Colombia), Nora Nagels (Peru), Reveca Chávez, Rocío Duarte and Cinthia Arrua (Paraguay), Flavia Marco (Bolivia), Humberto Soto (Guatemala), and María Elena Quilodrán (Honduras) for their collaboration.
 
-## Instituciones
+## Institutions
 
 Universidad Católica del Uruguay (UCU) · Facultad de Ciencias Sociales, Universidad de la República (UdelaR) · Facultad de Gobierno, Universidad del Desarrollo (Chile) · Northwestern University · Agencia Nacional de Investigación e Innovación (ANII, Uruguay)

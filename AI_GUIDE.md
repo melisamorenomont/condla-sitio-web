@@ -9,24 +9,25 @@ código: alcanza con saber qué carpeta tocar y qué palabras usar al pedirlo.
 ```
 condla-sitio-web/
 ├── _quarto.yml          # el menú de navegación y el tema del sitio
-├── index.qmd            # página "Inicio"
-├── explorar.qmd         # página "Explorar los datos" (la interactiva)
-├── codebook.qmd         # página "Codebook y metodología"
-├── descargas.qmd        # página "Descargas y réplica"
-├── publicaciones.qmd    # página "Publicaciones"
-├── equipo.qmd           # página "Equipo"
+├── index.qmd            # página "Home"
+├── explorar.qmd         # página "Explore the Data" (la interactiva)
+├── codebook.qmd         # página "Codebook & Methodology"
+├── descargas.qmd        # página "Downloads & Replication"
+├── publicaciones.qmd    # página "Publications"
+├── equipo.qmd           # página "Team"
 ├── styles/brand.scss    # los 3 colores de marca y la tipografía
 ├── data/                # la base de datos que lee la página interactiva
 ├── descargas/           # el codebook (PDF) y el script de R para descargar
 ├── publicaciones/        # PDFs propios del equipo (ej. el policy brief)
-├── img/                 # imágenes (la ilustración de la portada)
 └── R/validar_datos.R    # un chequeo automático de que la base tiene la
                           # forma esperada (336 filas, 49 columnas)
 ```
 
 Cada página del menú de arriba es un archivo `.qmd` con ese mismo nombre.
-Si querés pedir un cambio en "la página de Publicaciones", el archivo es
-`publicaciones.qmd`.
+Si querés pedir un cambio en "la página de Publications", el archivo es
+`publicaciones.qmd` (los nombres de archivo quedaron en español, el
+contenido visible de cada página está en inglés, para seguir el idioma
+del codebook).
 
 ## Cómo actualizar la base de datos cuando salga una versión nueva
 
@@ -46,10 +47,17 @@ Si querés pedir un cambio en "la página de Publicaciones", el archivo es
 
 ## Qué es una "celda ojs" (la parte interactiva)
 
-La página "Explorar los datos" no es HTML fijo: tiene bloques de código
+La página "Explore the Data" no es HTML fijo: tiene bloques de código
 Observable JS (se ven como ```` ```{ojs} ... ``` ```` en el archivo
 `explorar.qmd`) que leen el CSV y arman los filtros y gráficos en el
 navegador de quien visita la página, sin necesidad de un servidor.
+
+Las secciones de esa página (Filters, Chart, Data table) son desplegables
+(`<details><summary>...</summary>...</details>` en HTML, directamente en
+el archivo `.qmd`) — para agregar una nueva sección desplegable, ese es
+el patrón a copiar. El selector "View as" (Bars/Lines) es una celda OJS
+más: una sola celda de gráfico que elige qué dibujar según ese valor, en
+vez de dos gráficos separados.
 
 Para pedir un cambio ahí, podés decir cosas como:
 
@@ -73,10 +81,9 @@ estilo ("hacé el navbar más oscuro", "cambiá el color de los botones"),
 basta con nombrar ese archivo o describir el cambio — la IA sabe que ahí
 vive la paleta.
 
-La ilustración de la portada (`img/hero.svg`) es un placeholder simple
-hecho con formas básicas, no la ilustración original con derechos del
-WordPress/policy brief — reemplazarla por el arte real (o uno con
-licencia confirmada) queda pendiente.
+La portada ya no tiene ilustración (se sacó a pedido): el bloque
+`.hero-section` de `index.qmd` es solo texto, con el fondo celeste de
+marca como único elemento visual.
 
 ## Cómo previsualizar un cambio antes de publicarlo
 

@@ -17,33 +17,31 @@ project:
 
 website:
   title: "CONDLA"
-  description: "Condicionalidades en Transferencias Monetarias Condicionadas en América Latina"
-  # TODO al publicar: completar con la URL real de GitHub Pages (ver README.md,
-  # sección "Cómo transferir este sitio a otra cuenta de GitHub").
-  site-url: ""
+  description: "Conditionalities in Latin America's Conditional Cash Transfer programs"
+  site-url: "https://melisamorenomont.github.io/condla-sitio-web/"
   navbar:
     left:
       - href: index.qmd
-        text: Inicio
+        text: Home
       - href: explorar.qmd
-        text: Explorar los datos
+        text: Explore the Data
       - href: codebook.qmd
-        text: Codebook y metodología
+        text: Codebook & Methodology
       - href: descargas.qmd
-        text: Descargas y réplica
+        text: Downloads & Replication
       - href: publicaciones.qmd
-        text: Publicaciones
+        text: Publications
       - href: equipo.qmd
-        text: Equipo
+        text: Team
   page-footer:
-    center: "Proyecto CONDLA — Condicionalidades en América Latina"
+    center: "CONDLA Project — Conditionalities in Latin America"
 
 format:
   html:
     theme: [cosmo, styles/brand.scss]
     toc: false
-    lang: es
+    lang: en
     grid:
       body-width: 900px
 
-lang: es
+lang: en

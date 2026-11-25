@@ -1,12 +1,10 @@
 ---
-title: "Explorar los datos"
+title: "Explore the Data"
 ---
 
-# Explorar los datos
+Explore the conditionality index for the 28 Conditional Cash Transfer programs in the CONDLA dataset (336 program-country-year observations, 1997-2026). Pick countries and a year range, then view the index as bars (for the end year of the range) or as a line chart over time.
 
-Explorá el índice de condicionalidad de los 28 programas de Transferencias Monetarias Condicionadas de la base CONDLA (336 observaciones programa-país-año, 1997-2026). Elegí países y un rango de años para ver la evolución, o un año puntual para comparar países entre sí.
-
-Algunas observaciones no tienen un valor de condicionalidad calculable (falta algún componente en las fuentes primarias): esas filas se excluyen de los gráficos en lugar de graficarse como 0, para no confundir "sin dato" con "sin condicionalidad". Ver el detalle en [Codebook y metodología](codebook.qmd).
+Some observations have no computable conditionality value (a component is missing in the primary sources): those rows are excluded from the charts rather than plotted as 0, so as not to confuse "no data" with "no conditionality". See [Codebook & Methodology](codebook.qmd) for details.
 
 ```{ojs}
 //| echo: false
@@ -32,21 +30,22 @@ anoMin = d3.min(clean, d => d.ano)
 anoMax = d3.max(clean, d => d.ano)
 ```
 
-## Filtros
+<details open>
+<summary><strong>Filters</strong></summary>
 
 ```{ojs}
 //| echo: false
-viewof paisesSeleccionados = Inputs.checkbox(paises, {label: "País", value: paises})
+viewof paisesSeleccionados = Inputs.checkbox(paises, {label: "Country", value: paises})
 ```
 
 ```{ojs}
 //| echo: false
-viewof anoDesde = Inputs.range([anoMin, anoMax], {label: "Desde (evolución y tabla)", step: 1, value: anoMin})
+viewof anoDesde = Inputs.range([anoMin, anoMax], {label: "From", step: 1, value: anoMin})
 ```
 
 ```{ojs}
 //| echo: false
-viewof anoHasta = Inputs.range([anoMin, anoMax], {label: "Hasta (evolución y tabla)", step: 1, value: anoMax})
+viewof anoHasta = Inputs.range([anoMin, anoMax], {label: "To", step: 1, value: anoMax})
 ```
 
 ```{ojs}
@@ -54,10 +53,7 @@ viewof anoHasta = Inputs.range([anoMin, anoMax], {label: "Hasta (evolución y ta
 rangoAnos = [Math.min(anoDesde, anoHasta), Math.max(anoDesde, anoHasta)]
 ```
 
-```{ojs}
-//| echo: false
-viewof anoSnapshot = Inputs.range([anoMin, anoMax], {label: "Año puntual (gráfico de barras)", step: 1, value: anoMax})
-```
+</details>
 
 ```{ojs}
 //| echo: false
@@ -71,64 +67,70 @@ filtered = clean.filter(d =>
 //| echo: false
 snapshot = clean.filter(d =>
   paisesSeleccionados.includes(d.pais) &&
-  d.ano === Math.round(anoSnapshot) &&
+  d.ano === rangoAnos[1] &&
   d.conditionality !== null
 )
 ```
 
-## Índice de condicionalidad por país (año puntual)
+<details open>
+<summary><strong>Chart</strong></summary>
 
 ```{ojs}
 //| echo: false
-snapshot.length === 0
-  ? html`<p><em>Sin datos para este filtro.</em></p>`
-  : Plot.plot({
-      marginBottom: 90,
-      width: 800,
-      x: {label: null, tickRotate: -40},
-      y: {label: "Índice de condicionalidad (0-1)", domain: [0, 1]},
-      marks: [
-        Plot.barY(snapshot, {x: "pais", y: "conditionality", fill: "#1B3B6F", sort: {x: "y"}}),
-        Plot.ruleY([0])
-      ]
-    })
+viewof chartType = Inputs.select(["Bars", "Lines"], {label: "View as", value: "Bars"})
 ```
-
-## Evolución del índice en el tiempo
 
 ```{ojs}
 //| echo: false
-filtered.filter(d => d.conditionality !== null).length === 0
-  ? html`<p><em>Sin datos para este filtro.</em></p>`
-  : Plot.plot({
-      width: 800,
-      y: {label: "Índice de condicionalidad (0-1)", domain: [0, 1]},
-      x: {label: "Año", tickFormat: "d"},
-      color: {legend: true},
-      marks: [
-        Plot.line(filtered.filter(d => d.conditionality !== null), {x: "ano", y: "conditionality", stroke: "pais"}),
-        Plot.ruleY([0])
-      ]
-    })
+chartType === "Bars"
+  ? (snapshot.length === 0
+      ? html`<p><em>No data for this filter.</em></p>`
+      : Plot.plot({
+          marginBottom: 90,
+          width: 800,
+          x: {label: null, tickRotate: -40},
+          y: {label: "Conditionality index (0-1)", domain: [0, 1]},
+          marks: [
+            Plot.barY(snapshot, {x: "pais", y: "conditionality", fill: "#1B3B6F", sort: {x: "y"}}),
+            Plot.ruleY([0])
+          ]
+        }))
+  : (filtered.filter(d => d.conditionality !== null).length === 0
+      ? html`<p><em>No data for this filter.</em></p>`
+      : Plot.plot({
+          width: 800,
+          y: {label: "Conditionality index (0-1)", domain: [0, 1]},
+          x: {label: "Year", tickFormat: "d"},
+          color: {legend: true},
+          marks: [
+            Plot.line(filtered.filter(d => d.conditionality !== null), {x: "ano", y: "conditionality", stroke: "pais"}),
+            Plot.ruleY([0])
+          ]
+        }))
 ```
 
-## Tabla de datos
+</details>
+
+<details>
+<summary><strong>Data table</strong></summary>
 
 ```{ojs}
 //| echo: false
 filtered.length === 0
-  ? html`<p><em>Sin datos para este filtro.</em></p>`
+  ? html`<p><em>No data for this filter.</em></p>`
   : Inputs.table(filtered, {
       columns: ["pais", "programa", "ano", "conditionality", "behaviour_ind", "monitoring_ind", "sanctions_ind"],
       header: {
-        pais: "País",
-        programa: "Programa",
-        ano: "Año",
-        conditionality: "Condicionalidad",
-        behaviour_ind: "Comportamiento",
-        monitoring_ind: "Monitoreo",
-        sanctions_ind: "Sanciones"
+        pais: "Country",
+        programa: "Program",
+        ano: "Year",
+        conditionality: "Conditionality",
+        behaviour_ind: "Behavior",
+        monitoring_ind: "Monitoring",
+        sanctions_ind: "Sanctions"
       },
       format: {ano: d => String(d)}
     })
 ```
+
+</details>

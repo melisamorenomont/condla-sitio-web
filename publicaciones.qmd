@@ -1,34 +1,32 @@
 ---
-title: "Publicaciones"
+title: "Publications"
 ---
 
-# Publicaciones
-
-## Papers académicos
+## Academic papers
 
 **Welfare conditionality in Latin America's conditional cash transfers: Models and trends**
 Antía, F., Rossel, C., & Karsaclian, S. (2024). *International Journal of Social Welfare*. [doi.org/10.1111/ijsw.12677](https://doi.org/10.1111/ijsw.12677)
 
-> Este artículo muestra que las condicionalidades varían entre las TMC de América Latina y a lo largo del tiempo dentro de los programas. En base a las conceptualizaciones existentes sobre la condicionalidad del bienestar y la base CONDLA, analiza la evolución y variación en el diseño de la condicionalidad en la región.
+> Shows that conditionalities vary across Latin America's CCTs and across time within programs. Drawing on existing conceptualizations of welfare conditionality and the CONDLA dataset, it analyzes the evolution and variation in the design of conditionality in the region.
 
 **Welfare conditionality in OECD countries and in Latin America: A comparative perspective**
-Antía, F., Immervoll, H., Knotz, C. M., & Rossel, C. (de próxima publicación). *Global Social Policy*.
+Antía, F., Immervoll, H., Knotz, C. M., & Rossel, C. (forthcoming). *Global Social Policy*.
 
-> Analiza los elementos fundamentales de las normas de condicionalidad de las prestaciones en la OCDE y en América Latina mediante un marco de medición común, y sus implicaciones para el estudio de la política social condicional desde una perspectiva global.
+> Analyzes the core elements of benefit conditionality rules in the OECD and in Latin America through a common measurement framework, and their implications for studying conditional social policy from a global perspective.
 
 **The Politics of Conditionality in Latin America's Cash Transfer Reforms**
 Antía, F. & Rossel, C.
 
-> Analiza la heterogeneidad en el diseño de las condicionalidades de los programas de transferencias condicionadas de América Latina y la dinámica política detrás de los distintos modelos.
+> Analyzes the heterogeneity in the design of conditionalities across Latin America's conditional cash transfer programs and the political dynamics behind the different models.
 
 **The politics of sanctioning the poor through welfare conditionality: Revealing causal mechanisms in Uruguay**
 Antía, F. & Rossel, C.
 
-> Mediante *process tracing* del caso uruguayo, muestra cómo la competencia electoral y la opinión pública llevaron a un gobierno de izquierda a endurecer la aplicación de condicionalidades para no alienar a su base electoral no beneficiaria de transferencias.
+> Using process tracing on the Uruguayan case, shows how electoral competition and public opinion led a left-wing government to tighten the enforcement of conditionalities so as not to alienate its non-beneficiary electoral base.
 
 ## Policy brief
 
-**¿Qué son las condicionalidades en política social? Hacia un concepto integrador**
-Antía, F. & Rossel, C. — [descargar PDF](publicaciones/policy-brief-condicionalidades.pdf)
+**What are conditionalities in social policy? Towards an integrative concept**
+Antía, F. & Rossel, C. — [download PDF](publicaciones/policy-brief-condicionalidades.pdf) (in Spanish)
 
-> Repasa los avances de la literatura por conceptualizar las condicionalidades y desarrolla un nuevo concepto, operacionalizado para las Transferencias Monetarias Condicionadas de América Latina, que permite estudiarlas en distintos campos de política y regiones.
+> Reviews advances in the literature on conceptualizing conditionalities and develops a new concept, operationalized for Latin America's Conditional Cash Transfer programs, that makes it possible to study them across policy fields and regions.

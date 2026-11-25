@@ -1,39 +1,37 @@
 ---
-title: "Codebook y metodología"
+title: "Codebook & Methodology"
 ---
 
-# Codebook y metodología
+This page summarizes the full CONDLA codebook (`CONDLA_indices_codebook_v1.pdf`, downloadable from [Downloads & Replication](descargas.qmd)). It covers 28 Conditional Cash Transfer programs in 16 Latin American countries, 336 program-country-year observations between 1997 and 2026.
 
-Esta página resume el codebook completo de la base CONDLA (`CONDLA_indices_codebook_v1.pdf`, descargable en [Descargas y réplica](descargas.qmd)). Cubre 28 programas de Transferencias Monetarias Condicionadas en 16 países de América Latina, 336 observaciones programa-país-año entre 1997 y 2026.
+## The concept of conditionality, in three levels
 
-## El concepto de condicionalidad, en tres niveles
+Following Goertz's (2006) framework for concept structure in the social sciences, CONDLA treats welfare conditionality as a three-level concept:
 
-Siguiendo el marco de Goertz (2006) para la estructura de conceptos en ciencias sociales, CONDLA trata la condicionalidad del bienestar como un concepto de tres niveles:
+- **Primary level**: the concept itself, *welfare conditionality*.
+- **Secondary level**: three attributes — **behavioral requirements**, **monitoring**, and **sanctions** — individually necessary and, jointly, sufficient. Because they are assumed to interact (a high value on one does not compensate for the absence of another), they are aggregated with a **geometric mean**, not a simple average.
+- **Tertiary level**: the concrete indicators for CCTs — education, health (by age group), workshops and labor on the behavioral side; monitoring frequency, binding agreements and evidence of compliance on the monitoring side; sanction severity for non-compliance with each behavioral condition on the sanctions side.
 
-- **Nivel primario**: el concepto en sí, *condicionalidad del bienestar*.
-- **Nivel secundario**: tres atributos — **comportamientos requeridos**, **monitoreo** y **sanciones** — individualmente necesarios y, en conjunto, suficientes. Como se asume que interactúan (un valor alto en uno no compensa la ausencia de otro), se agregan con una **media geométrica**, no con un promedio simple.
-- **Nivel terciario**: los indicadores concretos para TMC — educación, salud (por grupo etario), talleres y trabajo del lado de los comportamientos; frecuencia de control, acuerdos vinculantes y evidencia de cumplimiento del lado del monitoreo; severidad de la sanción por incumplimiento de cada condición del lado de las sanciones.
+## The 36 coded variables, by dimension
 
-## Las 36 variables codificadas, por dimensión
-
-| Dimensión | Sub-dimensión | Variables codificadas |
+| Dimension | Sub-dimension | Coded variables |
 |---|---|---|
-| Comportamientos requeridos | Educación | `edu_mat_asis_res_cond` |
-| | Salud (por grupo etario) | `salud_carn_vac_cond`, `salud_cont2_cond`, `salud_cont25_cond`, `salud_cont618_cond`, `salud_cont_adult_cond`, `salud_cont_pre_nat_cond` |
-| | Trabajo y talleres | `lab_req_cond`, `lab_tall_cond` |
-| | Nivel de detalle | `otros_det_exp_cond` |
-| Sanciones | Educación (primer/segundo incumplimiento, más severa) | `edu_1er_inc_sanc`, `edu_2do_inc_sanc`, `edu_mas_severa_sanc` |
-| | Salud, por grupo etario (mismo patrón ×5 grupos) | `salud_{2,25,618,adult,pre_nat}_{1er_inc,2do_inc,mas_severa}_sanc` |
-| | Otros comportamientos | `otras_cond_{1er_inc,2do_inc,mas_severa}_sanc` |
-| | Nivel de detalle | `edu_det_exp_sanc`, `otros_det_exp_sanc` |
-| Monitoreo | Frecuencia y detalle | `frec_cont_mon`, `det_exp_mon` |
-| Población objetivo | Grupos etarios cubiertos | `grupos_po` (construida, no codificada directamente) |
+| Behavioral conditions | Education | `edu_mat_asis_res_cond` |
+| | Health (by age group) | `salud_carn_vac_cond`, `salud_cont2_cond`, `salud_cont25_cond`, `salud_cont618_cond`, `salud_cont_adult_cond`, `salud_cont_pre_nat_cond` |
+| | Labor and workshops | `lab_req_cond`, `lab_tall_cond` |
+| | Level of detail | `otros_det_exp_cond` |
+| Sanctions | Education (first/second non-compliance, most severe) | `edu_1er_inc_sanc`, `edu_2do_inc_sanc`, `edu_mas_severa_sanc` |
+| | Health, by age group (same pattern ×5 groups) | `salud_{2,25,618,adult,pre_nat}_{1er_inc,2do_inc,mas_severa}_sanc` |
+| | Other behaviors | `otras_cond_{1er_inc,2do_inc,mas_severa}_sanc` |
+| | Level of detail | `edu_det_exp_sanc`, `otros_det_exp_sanc` |
+| Monitoring | Frequency and detail | `frec_cont_mon`, `det_exp_mon` |
+| Target population | Age groups covered | `grupos_po` (constructed, not directly coded) |
 
-La base publicable (`data/condla_indices.csv`) agrega estas 36 variables codificadas a 4 identificadores (`pais`, `programa`, `pais_programa`, `ano`), 4 índices de severidad y 5 índices de vaguedad — 49 columnas en total.
+The publishable dataset (`data/condla_indices.csv`) adds these 36 coded variables to 4 identifiers (`pais`, `programa`, `pais_programa`, `ano`), 4 severity indices, and 5 specification (vagueness) indices — 49 columns in total.
 
-## Cómo se construyen los índices
+## How the indices are built
 
-**Comportamientos.** Cada sub-dimensión se reescala a 0-7 y se combina con pesos fijos (educación y salud concentran el 91% del peso, por ser los componentes centrales de las TMC):
+**Behavioral conditions.** Each sub-dimension is rescaled to 0-7 and combined with fixed weights (education and health together account for 91% of the weight, as the core components of CCTs):
 
 $$
 \text{behaviour} = 0.455 \cdot \text{cond\_edu} + 0.455 \cdot \text{cond\_health} + 0.045 \cdot \text{cond\_workshops} + 0.045 \cdot \text{cond\_labour}
@@ -43,26 +41,26 @@ $$
 \text{behaviour\_ind} = \text{behaviour} / 7
 $$
 
-**Monitoreo.** Se basa únicamente en la frecuencia de control, reescalada a 0-7:
+**Monitoring.** Based solely on monitoring frequency, rescaled to 0-7:
 
 $$
 \text{monitoring\_ind} = \text{freq} / 7
 $$
 
-**Sanciones.** Para cada dominio sancionable (educación, salud, otros) se promedia la severidad del primer incumplimiento, el segundo y la sanción más severa, y luego se promedian los tres dominios:
+**Sanctions.** For each sanctionable domain (education, health, other), the severity of the first non-compliance, the second, and the most severe sanction are averaged, and the three domains are then averaged:
 
 $$
 \text{sanctions\_ind} = \frac{\text{sanc\_edu} + \text{sanc\_health} + \text{sanc\_otros}}{3}
 $$
 
-**Índice general.** Los tres índices de dimensión se combinan con media geométrica:
+**Overall index.** The three dimension indices are combined with a geometric mean:
 
 $$
 \text{conditionality} = (\text{behaviour\_ind} \times \text{monitoring\_ind} \times \text{sanctions\_ind})^{1/3}
 $$
 
-**Vaguedad de las reglas.** Independientemente de qué tan estrictas son las reglas, un segundo conjunto de variables mide qué tan explícitamente están especificadas (0 = vagas, 1 = explícitas), promediadas en `av_vagueness`.
+**Vagueness of the rules.** Independently of how strict the rules are, a second set of variables measures how explicitly they are specified (0 = vague, 1 = explicit), averaged into `av_vagueness`.
 
-## Observaciones sin índice de condicionalidad (14 de 336)
+## Observations without a conditionality index (14 of 336)
 
-Por cómo se construye el índice (media geométrica de tres componentes, cada uno sensible a información faltante), 14 de las 336 observaciones no tienen un valor de `conditionality` calculable: 10 de Bolivia/Bono Juancito Pinto (2006-2015, frecuencia de monitoreo sin información), 3 de Costa Rica/Superémonos (2000-2002, sin sanciones de educación codificadas) y 1 de Panamá/Red de Oportunidades (2006). Estas filas **no se imputan**: se mantienen como dato faltante, tanto en la base descargable como en los gráficos de [Explorar los datos](explorar.qmd), para no asignarles un nivel de condicionalidad que la información disponible no permite establecer.
+Because of how the index is built (a geometric mean of three components, each sensitive to missing information), 14 of the 336 observations do not have a computable `conditionality` value: 10 from Bolivia's Bono Juancito Pinto (2006-2015, monitoring frequency not coded), 3 from Costa Rica's Superémonos (2000-2002, education sanctions not coded), and 1 from Panama's Red de Oportunidades (2006). These rows are **not imputed**: they remain missing, both in the downloadable dataset and in the charts under [Explore the Data](explorar.qmd), so as not to assign a conditionality level that the available information does not allow us to establish.
