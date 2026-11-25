@@ -8,7 +8,7 @@ project:
     - descargas.qmd
     - publicaciones.qmd
     - equipo.qmd
-    - contribute.qmd
+    - disclaimer.qmd
     # Nota: `descargas/` y `docs/` contienen .qmd que NO deben renderizarse
     # como páginas del sitio -- descargas/Script_publicable_CONDLA_v1.qmd es
     # un archivo para descargar tal cual (el script de replicación), y
@@ -34,8 +34,8 @@ website:
         text: Publications
       - href: equipo.qmd
         text: Team
-      - href: contribute.qmd
-        text: Contribute & Disclaimer
+      - href: disclaimer.qmd
+        text: Disclaimer
   page-footer:
     center: "CONDLA Project — Conditionalities in Latin America"
 

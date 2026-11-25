@@ -15,6 +15,7 @@ condla-sitio-web/
 ├── descargas.qmd        # página "Downloads & Replication"
 ├── publicaciones.qmd    # página "Publications"
 ├── equipo.qmd           # página "Team"
+├── disclaimer.qmd       # página "Disclaimer"
 ├── styles/brand.scss    # los 3 colores de marca y la tipografía
 ├── data/                # la base de datos que lee la página interactiva
 ├── descargas/           # el codebook (PDF) y el script de R para descargar

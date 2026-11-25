@@ -2,7 +2,7 @@
 title: "Explore the Data"
 ---
 
-Explore the conditionality index for the 28 Conditional Cash Transfer programs in the CONDLA dataset (336 program-country-year observations, 1997-2026). Pick countries and a year range, then view the index as bars (for the end year of the range) or as a line chart over time.
+Explore the conditionality index for the 28 Conditional Cash Transfer programs in the CONDLA dataset (336 program-country-year observations, 1997-2026). Pick countries, then view the index as bars for a single year, or as a line chart over a year range.
 
 Some observations have no computable conditionality value (a component is missing in the primary sources): those rows are excluded from the charts rather than plotted as 0, so as not to confuse "no data" with "no conditionality". See [Codebook & Methodology](codebook.qmd) for details.
 
@@ -58,6 +58,17 @@ viewof paisesSeleccionados = Inputs.checkbox(paises, {value: paises})
 ::: {.column width="35%"}
 **Years**
 
+<div id="year-single">
+
+```{ojs}
+//| echo: false
+viewof anoUnico = Inputs.range([anoMin, anoMax], {label: "Year", step: 1, value: anoMax})
+```
+
+</div>
+
+<div id="year-range">
+
 ```{ojs}
 //| echo: false
 viewof anoDesde = Inputs.range([anoMin, anoMax], {label: "From", step: 1, value: anoMin})
@@ -67,36 +78,36 @@ viewof anoDesde = Inputs.range([anoMin, anoMax], {label: "From", step: 1, value:
 //| echo: false
 viewof anoHasta = Inputs.range([anoMin, anoMax], {label: "To", step: 1, value: anoMax})
 ```
+
+</div>
+
+```{ojs}
+//| echo: false
+toggleYearControls = {
+  const single = document.getElementById("year-single");
+  const range = document.getElementById("year-range");
+  if (single) single.style.display = chartType === "Bars" ? "" : "none";
+  if (range) range.style.display = chartType === "Lines" ? "" : "none";
+}
+```
 :::
 
 :::
 
 ```{ojs}
 //| echo: false
-rangoAnos = [Math.min(anoDesde, anoHasta), Math.max(anoDesde, anoHasta)]
-```
-
-```{ojs}
-//| echo: false
-filtered = clean.filter(d =>
-  paisesSeleccionados.includes(d.pais) &&
-  d.ano >= rangoAnos[0] && d.ano <= rangoAnos[1]
-)
-```
-
-```{ojs}
-//| echo: false
-snapshot = clean.filter(d =>
-  paisesSeleccionados.includes(d.pais) &&
-  d.ano === rangoAnos[1] &&
-  d.conditionality !== null
-)
+filtered = clean.filter(d => {
+  if (!paisesSeleccionados.includes(d.pais)) return false;
+  return chartType === "Bars"
+    ? d.ano === anoUnico
+    : d.ano >= Math.min(anoDesde, anoHasta) && d.ano <= Math.max(anoDesde, anoHasta);
+})
 ```
 
 ```{ojs}
 //| echo: false
 chartType === "Bars"
-  ? (snapshot.length === 0
+  ? (filtered.filter(d => d.conditionality !== null).length === 0
       ? html`<p><em>No data for this filter.</em></p>`
       : Plot.plot({
           marginBottom: 90,
@@ -104,7 +115,7 @@ chartType === "Bars"
           x: {label: null, tickRotate: -40},
           y: {label: "Conditionality index (0-1)", domain: [0, 1]},
           marks: [
-            Plot.barY(snapshot, {x: "pais", y: "conditionality", fill: "#1B3B6F", sort: {x: "y"}}),
+            Plot.barY(filtered.filter(d => d.conditionality !== null), {x: "pais", y: "conditionality", fill: "#1B3B6F", sort: {x: "y"}}),
             Plot.ruleY([0])
           ]
         }))

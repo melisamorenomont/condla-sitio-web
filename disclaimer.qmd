@@ -1,0 +1,11 @@
+---
+title: "Disclaimer"
+---
+
+You can download and use the data, codebook, and script provided here free of charge for research purposes. If you do, please cite the dataset as:
+
+> Antía, Florencia and Cecilia Rossel. 2026. *CONDLA: Conditionalities in Latin America Database*.
+
+You may not sell any of the materials obtained here, or incorporate them into another dataset without our explicit permission. Please do not redistribute a modified version of these files as if it were the original.
+
+We have taken care to produce accurate, well-documented data, but cannot guarantee that the dataset and accompanying files are entirely free of errors. If you detect one, or would like to suggest a correction, please contact us (see [Team](equipo.qmd)). We accept no liability for damages arising from the use of the materials provided here.
