@@ -16,7 +16,7 @@ Despite covering a larger population than unemployment benefit conditionality in
 
 ## The CONDLA dataset
 
-CONDLA codes the design of conditionality — not just whether it exists, but how it is specified — in 28 CCT programs across 16 Latin American countries, between 1997 and 2026.
+CONDLA codes the design of conditionality in 28 CCT programs across 16 Latin American countries, between 1997 and 2026.
 
 - [**Explore the Data**](explorar.qmd): the conditionality index, interactive, by country and over time.
 - [**Codebook & Methodology**](codebook.qmd): how the data were coded and how the indices are built.
