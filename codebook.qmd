@@ -9,7 +9,7 @@ This page summarizes the full CONDLA codebook (`CONDLA_indices_codebook_v1.pdf`,
 Following Goertz's (2006) framework for concept structure in the social sciences, CONDLA treats welfare conditionality as a three-level concept:
 
 - **Primary level**: the concept itself, *welfare conditionality*.
-- **Secondary level**: three attributes — **behavioral requirements**, **monitoring**, and **sanctions** — individually necessary and, jointly, sufficient. Because they are assumed to interact (a high value on one does not compensate for the absence of another), they are aggregated with a **geometric mean**, not a simple average.
+- **Secondary level**: three attributes — **behavioral requirements**, **monitoring**, and **sanctions** — individually necessary and, jointly, sufficient. Because they are assumed to interact (a high value on one does not compensate for the absence of another), they are aggregated with a **geometric mean**.
 - **Tertiary level**: the concrete indicators for CCTs — education, health (by age group), workshops and labor on the behavioral side; monitoring frequency, binding agreements and evidence of compliance on the monitoring side; sanction severity for non-compliance with each behavioral condition on the sanctions side.
 
 ## The 36 coded variables, by dimension

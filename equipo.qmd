@@ -2,59 +2,29 @@
 title: "Team"
 ---
 
-## Principal investigators
+## Lead researchers
 
-**Cecilia Rossel**
-
-PhD in Government and Public Administration (Instituto Ortega y Gasset/Universidad Complutense de Madrid), Associate Professor in the Department of Social Sciences at Universidad Católica del Uruguay. Her research addresses the political economy of welfare and social policy, the relationship between citizens and the state, and social protection, welfare, vulnerability and inequality in Latin America.
+**Cecilia Rossel** — PhD in Government and Public Administration (Instituto Ortega y Gasset/Universidad Complutense de Madrid), Associate Professor in the Department of Social Sciences at Universidad Católica del Uruguay. Her research addresses the political economy of welfare and social policy, the relationship between citizens and the state, and social protection, welfare, vulnerability and inequality in Latin America.
 
 E-mail: cecilia.rossel@ucu.edu.uy · Website: [ceciliarossel.com](https://ceciliarossel.com)
 
-**Florencia Antía**
-
-PhD in Political Science (Universidade Estadual de Rio de Janeiro), Associate Professor in the Department of Political Science, Facultad de Ciencias Sociales, Universidad de la República, Uruguay. She works on comparative political economy, with a focus on Latin America: social policy, redistributive policy, and the relationship between politics and justice.
+**Florencia Antía** — PhD in Political Science (Universidade Estadual de Rio de Janeiro), Associate Professor in the Department of Political Science, Facultad de Ciencias Sociales, Universidad de la República, Uruguay. She works on comparative political economy, with a focus on Latin America: social policy, redistributive policy, and the relationship between politics and justice.
 
 E-mail: florencia.antia@cienciassociales.edu.uy
 
-## Dataset team
+## Database development
 
-The following persons contributed to building the CONDLA dataset and constructing its indices:
+Florencia Antía, Cecilia Rossel, Sofía Karsaclian, Sebastián Pineyro, and Melisa Moreno.
 
-Sofía Karsaclian, Sebastián Pineyro, and Melisa Moreno.
+## Expert review
 
-## Collaborators
-
-**Santiago López Cariboni**
-
-PhD in Political Science (University of Essex), Associate Professor, Department of Economics, Facultad de Ciencias Sociales, Universidad de la República. International and comparative political economy: international trade and domestic politics, labor informality and social policy, informal transfers, parties and elections, research methods.
-
-E-mail: santiago.lopez@cienciassociales.edu.uy · Website: [lopez-cariboni.info](https://www.lopez-cariboni.info)
-
-**Pilar Manzi**
-
-BA in Political Science (Universidad Católica del Uruguay), MA and PhD candidate in Political Science (Northwestern University). Political economy of inequality, preferences for redistribution, and social policy.
-
-E-mail: pilar.manzi@u.northwestern.edu
-
-**Irene Menéndez González**
-
-PhD from the University of Oxford, professor at the School of Global and Public Affairs, IE University, Madrid. International and comparative political economy: globalization, the welfare state and labor markets, electoral institutions and political representation.
-
-E-mail: irene.menendez@ie.edu · Website: [sites.google.com/site/irenemenendez](https://sites.google.com/site/irenemenendez/)
-
-**Cecilia Osorio**
-
-PhD in Political Science, specialist in conditionalities in Chile; contributed to the expert review of the CONDLA dataset.
-
-## Expert reviewers
-
-To ensure the data are complete and free of errors, we asked country experts to review them and, where necessary, suggest corrections:
-
-Argentina: Mora Straschnoy
-Bolivia: Flavia Marco
-Chile: Cecilia Osorio
-Colombia: Andrés Mora
-Guatemala: Humberto Soto
-Honduras: María Elena Quilodrán
-Paraguay: Reveca Chávez, Rocío Duarte, and Cinthia Arrua
-Peru: Nora Nagels
+| Country | Person(s) |
+|---|---|
+| Argentina | Mora Straschnoy |
+| Chile | Cecilia Osorio |
+| Colombia | Andrés Mora |
+| Peru | Nora Nagels |
+| Paraguay | Reveca Chávez, Rocío Duarte, Cinthia Arrua |
+| Bolivia | Flavia Marco |
+| Guatemala | Humberto Soto |
+| Honduras | María Elena Quilodrán |
