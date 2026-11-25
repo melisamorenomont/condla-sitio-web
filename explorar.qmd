@@ -49,7 +49,12 @@ viewof chartType = Inputs.select(["Bars", "Lines"], {label: "View as", value: "B
 
 ```{ojs}
 //| echo: false
-viewof paisesSeleccionados = Inputs.checkbox(paises, {value: paises})
+viewof selectAllPaises = Inputs.checkbox(["Select all"], {value: ["Select all"]})
+```
+
+```{ojs}
+//| echo: false
+viewof paisesSeleccionados = Inputs.checkbox(paises, {value: selectAllPaises.length > 0 ? paises : []})
 ```
 
 </details>
