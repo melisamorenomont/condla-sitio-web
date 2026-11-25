@@ -4,4 +4,31 @@ title: "Publicaciones"
 
 # Publicaciones
 
-Contenido pendiente (Task 6 del plan de implementación).
+## Papers académicos
+
+**Welfare conditionality in Latin America's conditional cash transfers: Models and trends**
+Antía, F., Rossel, C., & Karsaclian, S. (2024). *International Journal of Social Welfare*. [doi.org/10.1111/ijsw.12677](https://doi.org/10.1111/ijsw.12677)
+
+> Este artículo muestra que las condicionalidades varían entre las TMC de América Latina y a lo largo del tiempo dentro de los programas. En base a las conceptualizaciones existentes sobre la condicionalidad del bienestar y la base CONDLA, analiza la evolución y variación en el diseño de la condicionalidad en la región.
+
+**Welfare conditionality in OECD countries and in Latin America: A comparative perspective**
+Antía, F., Immervoll, H., Knotz, C. M., & Rossel, C. (de próxima publicación). *Global Social Policy*.
+
+> Analiza los elementos fundamentales de las normas de condicionalidad de las prestaciones en la OCDE y en América Latina mediante un marco de medición común, y sus implicaciones para el estudio de la política social condicional desde una perspectiva global.
+
+**The Politics of Conditionality in Latin America's Cash Transfer Reforms**
+Antía, F. & Rossel, C.
+
+> Analiza la heterogeneidad en el diseño de las condicionalidades de los programas de transferencias condicionadas de América Latina y la dinámica política detrás de los distintos modelos.
+
+**The politics of sanctioning the poor through welfare conditionality: Revealing causal mechanisms in Uruguay**
+Antía, F. & Rossel, C.
+
+> Mediante *process tracing* del caso uruguayo, muestra cómo la competencia electoral y la opinión pública llevaron a un gobierno de izquierda a endurecer la aplicación de condicionalidades para no alienar a su base electoral no beneficiaria de transferencias.
+
+## Policy brief
+
+**¿Qué son las condicionalidades en política social? Hacia un concepto integrador**
+Antía, F. & Rossel, C. — [descargar PDF](publicaciones/policy-brief-condicionalidades.pdf)
+
+> Repasa los avances de la literatura por conceptualizar las condicionalidades y desarrolla un nuevo concepto, operacionalizado para las Transferencias Monetarias Condicionadas de América Latina, que permite estudiarlas en distintos campos de política y regiones.

@@ -2,6 +2,29 @@
 title: "Inicio"
 ---
 
-# CONDLA
+:::{.hero-section}
+![](img/hero.svg){fig-alt="Ilustración decorativa: manos elevando figuras entre nubes"}
 
-Contenido pendiente (Task 6 del plan de implementación).
+# El condicionamiento de beneficios sociales en América Latina
+
+### Modelos y economía política
+
+Este proyecto describe y explica los distintos modelos que existen en los programas de Transferencias Monetarias Condicionadas (TMC) de América Latina para diseñar e implementar condicionalidades.
+:::
+
+## Preguntas de investigación
+
+**Modelos de condicionalidades.** ¿Existen modelos más tolerantes o punitivos de condicionalidades? ¿Qué variaciones existen en diseños y en implementación de condicionalidades en la región?
+
+**Decisiones gubernamentales.** ¿Por qué los gobiernos adoptan modelos más tolerantes o punitivos de condicionalidades? ¿En qué medida contemplan las preferencias de los sectores medios a la hora de elegir qué modelo de condicionalidad adoptar o cómo implementarlo?
+
+**Percepciones ciudadanas.** ¿En qué medida la predisposición de los sectores medios a redistribuir hacia los sectores más pobres está mediada por sus percepciones sobre quiénes merecen o no las transferencias y sobre cuál es la mejor forma de condicionar beneficios?
+
+## La base CONDLA
+
+Para responder estas preguntas, el equipo construyó **CONDLA**: una base de datos original que codifica el diseño de la condicionalidad (comportamientos exigidos, monitoreo y sanciones) en 28 programas de TMC de 16 países latinoamericanos, entre 1997 y 2026.
+
+- [**Explorar los datos**](explorar.qmd): el índice de condicionalidad, interactivo, por país y en el tiempo.
+- [**Codebook y metodología**](codebook.qmd): cómo se codificó y cómo se calculan los índices.
+- [**Descargas y réplica**](descargas.qmd): la base, el codebook y el script para reproducir el cálculo.
+- [**Publicaciones**](publicaciones.qmd): los papers y el policy brief del proyecto.

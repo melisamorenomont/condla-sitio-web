@@ -4,4 +4,35 @@ title: "Equipo"
 
 # Equipo
 
-Contenido pendiente (Task 6 del plan de implementación).
+## Investigadoras principales
+
+**Cecilia Rossel** — Doctora en Gobierno y Administración Pública (Instituto Ortega y Gasset/Universidad Complutense de Madrid), Profesora Asociada en el Departamento de Ciencias Sociales de la Universidad Católica del Uruguay. Su investigación aborda la economía política del bienestar y las políticas sociales, la relación entre ciudadanos y estado, y la protección social, el bienestar, la vulnerabilidad y la desigualdad en América Latina.
+cecilia.rossel@ucu.edu.uy · [ceciliarossel.com](https://ceciliarossel.com)
+
+**Florencia Antía** — Doctora en Ciencia Política (Universidade Estadual de Rio de Janeiro), Profesora Adjunta en el Departamento de Ciencia Política, Facultad de Ciencias Sociales, Universidad de la República, Uruguay. Trabaja en economía política comparada, con foco en América Latina: políticas sociales, políticas de redistribución y la relación entre política y justicia.
+florencia.antia@cienciassociales.edu.uy
+
+## Equipo de construcción de la base
+
+Sofía Karsaclian, Sebastián Pineyro y Melisa Moreno participaron en el desarrollo de la base CONDLA y la construcción de los índices.
+
+## Colaboradores
+
+**Santiago López Cariboni** — PhD en Ciencia Política (University of Essex), Profesor Agregado, Departamento de Economía, Facultad de Ciencias Sociales, Universidad de la República. Economía política internacional y comparada: comercio internacional y política doméstica, informalidad laboral y políticas sociales, transferencias informales, partidos y elecciones, métodos de investigación.
+santiago.lopez@cienciassociales.edu.uy · [lopez-cariboni.info](https://www.lopez-cariboni.info)
+
+**Pilar Manzi** — Licenciada en Ciencia Política (Universidad Católica del Uruguay), Magíster y candidata a doctora en Ciencia Política (Northwestern University). Economía política de la desigualdad, preferencias por redistribución y políticas sociales.
+pilar.manzi@u.northwestern.edu
+
+**Irene Menéndez González** — Doctora por la Universidad de Oxford, profesora en el School of Global and Public Affairs, IE University, Madrid. Economía política internacional y comparada: globalización, estado de bienestar, mercados laborales, instituciones electorales y representación política.
+irene.menendez@ie.edu · [sitio web](https://sites.google.com/site/irenemenendez/)
+
+**Cecilia Osorio** — Doctora en Ciencia Política, especialista en condicionalidades en Chile; colaboró en la revisión experta de la base CONDLA.
+
+## Revisión experta de la base por país
+
+Agradecemos la colaboración de Mora Straschnoy (Argentina), Cecilia Osorio (Chile), Andrés Mora (Colombia), Nora Nagels (Perú), Reveca Chávez, Rocío Duarte y Cinthia Arrua (Paraguay), Flavia Marco (Bolivia), Humberto Soto (Guatemala) y María Elena Quilodrán (Honduras).
+
+## Instituciones
+
+Universidad Católica del Uruguay (UCU) · Facultad de Ciencias Sociales, Universidad de la República (UdelaR) · Facultad de Gobierno, Universidad del Desarrollo (Chile) · Northwestern University · Agencia Nacional de Investigación e Innovación (ANII, Uruguay)
