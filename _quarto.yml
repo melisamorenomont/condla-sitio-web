@@ -2,7 +2,18 @@ project:
   type: website
   output-dir: _site
   render:
-    - "*.qmd"
+    - index.qmd
+    - explorar.qmd
+    - codebook.qmd
+    - descargas.qmd
+    - publicaciones.qmd
+    - equipo.qmd
+    # Nota: `descargas/` y `docs/` contienen .qmd que NO deben renderizarse
+    # como páginas del sitio -- descargas/Script_publicable_CONDLA_v1.qmd es
+    # un archivo para descargar tal cual (el script de replicación), y
+    # docs/ tiene el plan de implementación. Un glob como "*.qmd" los
+    # recoge igual y Quarto intenta ejecutarlos; por eso se listan los
+    # archivos exactos acá en vez de un patrón.
 
 website:
   title: "CONDLA"
