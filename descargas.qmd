@@ -10,4 +10,4 @@ Everything published here is the CONDLA team's own work: the coded dataset and i
 - [**Full codebook (PDF)**](descargas/CONDLA_indices_codebook_v1.pdf) — `CONDLA_indices_codebook_v1.pdf`: the definition of every one of the 49 columns and the mathematical derivation of the indices.
 - [**Replication script (Quarto/R)**](descargas/Script_publicable_CONDLA_v1.qmd) — `Script_publicable_CONDLA_v1.qmd`: rebuilds the 9 index columns from the 36 coded variables.
 
-Questions, or requests for the underlying database (before it was reduced to the analytical sample): please contact the researchers, see [Team](equipo.qmd).
+Questions or requests for the underlying database (before it was reduced to the analytical sample): please contact the researchers, see [Team](equipo.qmd).
