@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+
+website:
+  title: "CONDLA"
+  description: "Condicionalidades en Transferencias Monetarias Condicionadas en América Latina"
+  # TODO al publicar: completar con la URL real de GitHub Pages (ver README.md,
+  # sección "Cómo transferir este sitio a otra cuenta de GitHub").
+  site-url: ""
+  navbar:
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: explorar.qmd
+        text: Explorar los datos
+      - href: codebook.qmd
+        text: Codebook y metodología
+      - href: descargas.qmd
+        text: Descargas y réplica
+      - href: publicaciones.qmd
+        text: Publicaciones
+      - href: equipo.qmd
+        text: Equipo
+  page-footer:
+    center: "Proyecto CONDLA — Condicionalidades en América Latina"
+
+format:
+  html:
+    theme: [cosmo, styles/brand.scss]
+    toc: false
+    lang: es
+    grid:
+      body-width: 900px
+
+lang: es

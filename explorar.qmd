@@ -1,0 +1,7 @@
+---
+title: "Explorar los datos"
+---
+
+# Explorar los datos
+
+Contenido pendiente (Task 3 del plan de implementación).

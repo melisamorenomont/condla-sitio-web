@@ -1,0 +1,7 @@
+---
+title: "Descargas y réplica"
+---
+
+# Descargas y réplica
+
+Contenido pendiente (Task 5 del plan de implementación).

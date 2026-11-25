@@ -1,0 +1,34 @@
+/*-- scss:defaults --*/
+
+// Paleta de marca del proyecto CONDLA, tomada por muestreo de las portadas
+// del policy brief / nota metodológica y del WordPress del proyecto.
+// Si existe un archivo de marca oficial con valores exactos, actualizar acá.
+$condla-navy: #1B3B6F;
+$condla-peach: #F2C6A0;
+$condla-bg-light: #D8E0ED;
+
+$primary: $condla-navy;
+$link-color: $condla-navy;
+$navbar-bg: $condla-navy;
+$navbar-fg: #ffffff;
+$navbar-hl: $condla-peach;
+$body-bg: #ffffff;
+$footer-bg: $condla-navy;
+$footer-fg: #ffffff;
+
+/*-- scss:rules --*/
+
+.hero-section {
+  background-color: $condla-bg-light;
+  padding: 3rem 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.condla-accent {
+  color: darken($condla-peach, 15%);
+}
+
+.navbar-brand {
+  font-weight: 700;
+}

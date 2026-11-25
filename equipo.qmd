@@ -1,0 +1,7 @@
+---
+title: "Equipo"
+---
+
+# Equipo
+
+Contenido pendiente (Task 6 del plan de implementación).
