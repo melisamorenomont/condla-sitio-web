@@ -6,16 +6,8 @@ Everything published here is the CONDLA team's own work: the coded dataset and i
 
 ## Files
 
-- [**Dataset for exploring (CSV, 336×49)**](data/condla_indices.csv) — `condla_indices.csv`: the 36 coded variables plus the 4 severity indices and 5 vagueness indices, documented in [Codebook & Methodology](codebook.qmd). Same content as the replication dataset below, just under a shorter filename (it's the one used by [Explore the Data](explorar.qmd)).
-- [**Dataset for replication (CSV)**](<descargas/Base%20de%20datos%20con%20variables%20orig%20e%20indices%20cond%20y%20vague%20%2849%20variables%29%202026.csv>) — same content, under the original filename expected by the replication script below.
+- [**Dataset (CSV, 336×49)**](data/condla_indices.csv) — `condla_indices.csv`: the 36 coded variables plus the 4 severity indices and 5 vagueness indices, documented in [Codebook & Methodology](codebook.qmd).
 - [**Full codebook (PDF)**](descargas/CONDLA_indices_codebook_v1.pdf) — `CONDLA_indices_codebook_v1.pdf`: the definition of every one of the 49 columns and the mathematical derivation of the indices.
 - [**Replication script (Quarto/R)**](descargas/Script_publicable_CONDLA_v1.qmd) — `Script_publicable_CONDLA_v1.qmd`: rebuilds the 9 index columns from the 36 coded variables.
-
-## How to replicate the index calculation
-
-1. Install [R](https://cran.r-project.org/) and the `tidyverse` package (`install.packages("tidyverse")`). Optionally, [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://positron.posit.co/) to open the `.qmd` with an interface.
-2. Download the **script** and the **replication dataset** (the two links marked above) into the same folder, without renaming them.
-3. Open `Script_publicable_CONDLA_v1.qmd` and render it (the *Render* button in RStudio/Positron, or `quarto render Script_publicable_CONDLA_v1.qmd` from the terminal).
-4. The script recomputes the 9 index columns (`cond_edu`, `cond_health`, ..., `conditionality`, `av_vagueness`) from scratch and writes them back to the same CSV — the result should be identical to what is published here.
 
 Questions, or requests for the underlying database (before it was reduced to the analytical sample): please contact the researchers, see [Team](equipo.qmd).

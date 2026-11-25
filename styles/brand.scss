@@ -33,6 +33,16 @@ $footer-fg: #ffffff;
   font-weight: 700;
 }
 
+// Breathing room between the 3 filter columns in Explore the Data, so
+// adjacent controls (e.g. the "View as" and "Country" dropdowns) don't
+// sit flush against each other.
+.column {
+  padding-right: 2rem;
+}
+.column:last-child {
+  padding-right: 0;
+}
+
 // The 3-column filter row in Explore the Data (.columns/.column, from
 // Quarto) doesn't stack on its own at narrow widths; without this it
 // stays 3-across and each column gets too little room on a phone.
@@ -42,6 +52,7 @@ $footer-fg: #ffffff;
   }
   .column {
     width: 100% !important;
+    padding-right: 0;
     margin-bottom: 1rem;
   }
 }
