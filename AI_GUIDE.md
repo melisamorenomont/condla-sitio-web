@@ -36,8 +36,8 @@ del codebook).
    base, manteniendo esos mismos nombres de columna"* (adjuntando el
    archivo nuevo).
 2. Si los nombres de columna NO cambiaron (`pais`, `programa`, `ano`,
-   `conditionality`, `behaviour_ind`, `monitoring_ind`, `sanctions_ind`,
-   `av_vagueness`, etc.), no hace falta tocar nada más: la página
+   `stringency`, `behaviour_ind`, `monitoring_ind`, `sanctions_ind`,
+   `av_specification`, etc.), no hace falta tocar nada más: la página
    "Explorar los datos" los usa por nombre, no por posición.
 3. Si cambió la cantidad de filas o columnas, pedile a la IA que corra
    `R/validar_datos.R` (puede que haya que actualizar los números 336/49
@@ -65,7 +65,7 @@ Para pedir un cambio ahí, podés decir cosas como:
 - *"Agregá un filtro por programa, además de por país"*
 - *"Cambiá el gráfico de barras para que compare comportamiento, monitoreo
   y sanciones en vez de solo el índice general"*
-- *"Hacé que la tabla muestre también la columna `av_vagueness`"*
+- *"Hacé que la tabla muestre también la columna `av_specification`"*
 
 No hace falta saber JavaScript para pedirlo — con describir qué filtro o
 qué gráfico querés alcanza. Un detalle técnico que sí vale la pena conocer:

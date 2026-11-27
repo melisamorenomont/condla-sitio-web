@@ -9,7 +9,7 @@ Conditional Cash Transfers (CCTs) now reach more than 130 million people across 
 
 It is tempting to treat all of these programs as a single model — conditional cash transfers are conditional cash transfers. They are not. Programs differ enormously in how demanding their behavioral requirements are, how closely compliance is monitored, and how severely non-compliance is sanctioned. Mexico's *Prospera* and Paraguay's *Tekoporã* both condition a cash transfer on school attendance, but one monitors compliance monthly and suspends benefits for missing it, while the other barely monitors at all and relies on persuasion rather than sanctions.
 
-CONDLA treats welfare conditionality as a concept with three necessary and jointly sufficient attributes — **behavioral conditions**, **monitoring**, and **sanctions** — following the conceptual framework developed by Knotz (2018) for unemployment benefits in OECD countries. A high level of one attribute does not compensate for a low level of another: a program with very strict behavioral requirements but no real monitoring is not, on balance, "strict" conditionality. This is why the project's conditionality index combines the three dimensions with a geometric mean rather than an average.
+CONDLA treats welfare conditionality as a concept with three necessary and jointly sufficient attributes — **behavioral conditions**, **monitoring**, and **sanctions** — following the conceptual framework developed by Knotz (2018) for unemployment benefits in OECD countries. A high level of one attribute does not compensate for a low level of another: a program with very strict behavioral requirements but no real monitoring is not, on balance, "strict" conditionality. This is why the project's stringency index combines the three dimensions with a geometric mean rather than an average.
 
 Despite covering a larger population than unemployment benefit conditionality in the entire OECD, Latin America's CCTs had been largely absent from the international literature on welfare conditionality — a literature built almost entirely on cases from the developed world. CONDLA adapts and extends that conceptual framework to the region, and builds an original dataset that makes it possible, for the first time, to compare how strictly or leniently CCTs condition benefits across countries and over time.
 :::
@@ -18,7 +18,7 @@ Despite covering a larger population than unemployment benefit conditionality in
 
 CONDLA codes the design of conditionality in 28 CCT programs across 16 Latin American countries, between 1997 and 2026.
 
-- [**Explore the Data**](explorar.qmd): the conditionality index, interactive, by country and over time.
+- [**Explore the Data**](explorar.qmd): the stringency index, interactive, by country and over time.
 - [**Codebook & Methodology**](codebook.qmd): how the data were coded and how the indices are built.
 - [**Downloads & Replication**](descargas.qmd): the dataset, the codebook, and the script that reproduces the index.
 - [**Publications**](publicaciones.qmd): the project's papers and policy brief.

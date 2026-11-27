@@ -2,9 +2,9 @@
 title: "Explore the Data"
 ---
 
-Explore the conditionality index for the 28 Conditional Cash Transfer programs in the CONDLA dataset (336 program-country-year observations, 1997-2026). Pick countries, then view the index as bars for a single year, or as a line chart over a year range.
+Explore the stringency index for the 28 Conditional Cash Transfer programs in the CONDLA dataset (336 program-country-year observations, 1997-2026). Pick countries, then view the index as bars for a single year, or as a line chart over a year range.
 
-Some observations have no computable conditionality value (a component is missing in the primary sources): those rows are excluded from the charts rather than plotted as 0, so as not to confuse "no data" with "no conditionality". See [Codebook & Methodology](codebook.qmd) for details.
+Some observations have no computable stringency value (a component is missing in the primary sources): those rows are excluded from the charts rather than plotted as 0, so as not to confuse "no data" with "no stringency". See [Codebook & Methodology](codebook.qmd) for details.
 
 ```{ojs}
 //| echo: false
@@ -16,7 +16,7 @@ data = FileAttachment("data/condla_indices.csv").csv({typed: true})
 clean = data.map(d => ({
   ...d,
   ano: +d.ano,
-  conditionality: d.conditionality === "NA" ? null : +d.conditionality,
+  stringency: d.stringency === "NA" ? null : +d.stringency,
   behaviour_ind: d.behaviour_ind === "NA" ? null : +d.behaviour_ind,
   monitoring_ind: d.monitoring_ind === "NA" ? null : +d.monitoring_ind,
   sanctions_ind: d.sanctions_ind === "NA" ? null : +d.sanctions_ind
@@ -112,27 +112,27 @@ filtered = clean.filter(d => {
 ```{ojs}
 //| echo: false
 chartType === "Bars"
-  ? (filtered.filter(d => d.conditionality !== null).length === 0
+  ? (filtered.filter(d => d.stringency !== null).length === 0
       ? html`<p><em>No data for this filter.</em></p>`
       : Plot.plot({
           marginBottom: 90,
           width: 800,
           x: {label: null, tickRotate: -40},
-          y: {label: "Conditionality index (0-1)", domain: [0, 1]},
+          y: {label: "Stringency index (0-1)", domain: [0, 1]},
           marks: [
-            Plot.barY(filtered.filter(d => d.conditionality !== null), {x: "pais", y: "conditionality", fill: "#1B3B6F", sort: {x: "y"}}),
+            Plot.barY(filtered.filter(d => d.stringency !== null), {x: "pais", y: "stringency", fill: "#1B3B6F", sort: {x: "y"}}),
             Plot.ruleY([0])
           ]
         }))
-  : (filtered.filter(d => d.conditionality !== null).length === 0
+  : (filtered.filter(d => d.stringency !== null).length === 0
       ? html`<p><em>No data for this filter.</em></p>`
       : Plot.plot({
           width: 800,
-          y: {label: "Conditionality index (0-1)", domain: [0, 1]},
+          y: {label: "Stringency index (0-1)", domain: [0, 1]},
           x: {label: "Year", tickFormat: "d"},
           color: {legend: true},
           marks: [
-            Plot.line(filtered.filter(d => d.conditionality !== null), {x: "ano", y: "conditionality", stroke: "pais"}),
+            Plot.line(filtered.filter(d => d.stringency !== null), {x: "ano", y: "stringency", stroke: "pais"}),
             Plot.ruleY([0])
           ]
         }))
@@ -146,12 +146,12 @@ chartType === "Bars"
 filtered.length === 0
   ? html`<p><em>No data for this filter.</em></p>`
   : Inputs.table(filtered, {
-      columns: ["pais", "programa", "ano", "conditionality", "behaviour_ind", "monitoring_ind", "sanctions_ind"],
+      columns: ["pais", "programa", "ano", "stringency", "behaviour_ind", "monitoring_ind", "sanctions_ind"],
       header: {
         pais: "Country",
         programa: "Program",
         ano: "Year",
-        conditionality: "Conditionality",
+        stringency: "Stringency",
         behaviour_ind: "Behavior",
         monitoring_ind: "Monitoring",
         sanctions_ind: "Sanctions"

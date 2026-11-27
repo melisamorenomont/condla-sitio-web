@@ -12,8 +12,8 @@ df <- read.csv(ruta, stringsAsFactors = FALSE)
 
 columnas_esperadas <- c(
   "pais", "programa", "ano",
-  "conditionality", "behaviour_ind", "monitoring_ind", "sanctions_ind",
-  "av_vagueness"
+  "stringency", "behaviour_ind", "monitoring_ind", "sanctions_ind",
+  "av_specification"
 )
 
 errores <- character(0)

@@ -27,8 +27,6 @@ Following Goertz's (2006) framework for concept structure in the social sciences
 | Monitoring | Frequency and detail | `frec_cont_mon`, `det_exp_mon` |
 | Target population | Age groups covered | `grupos_po` (constructed, not directly coded) |
 
-The publishable dataset (`data/condla_indices.csv`) adds these 36 coded variables to 4 identifiers (`pais`, `programa`, `pais_programa`, `ano`), 4 severity indices, and 5 specification (vagueness) indices — 49 columns in total.
-
 ## How the indices are built
 
 **Behavioral conditions.** Each sub-dimension is rescaled to 0-7 and combined with fixed weights (education and health together account for 91% of the weight, as the core components of CCTs):
@@ -56,11 +54,11 @@ $$
 **Overall index.** The three dimension indices are combined with a geometric mean:
 
 $$
-\text{conditionality} = (\text{behaviour\_ind} \times \text{monitoring\_ind} \times \text{sanctions\_ind})^{1/3}
+\text{stringency} = (\text{behaviour\_ind} \times \text{monitoring\_ind} \times \text{sanctions\_ind})^{1/3}
 $$
 
-**Vagueness of the rules.** Independently of how strict the rules are, a second set of variables measures how explicitly they are specified (0 = vague, 1 = explicit), averaged into `av_vagueness`.
+**Specification of the rules.** Independently of how strict the rules are, a second set of variables measures how explicitly they are specified (0 = vague, 1 = explicit), averaged into `av_specification`.
 
-## Observations without a conditionality index (14 of 336)
+## Observations without a stringency index (14 of 336)
 
-Because of how the index is built (a geometric mean of three components, each sensitive to missing information), 14 of the 336 observations do not have a computable `conditionality` value: 10 from Bolivia's Bono Juancito Pinto (2006-2015, monitoring frequency not coded), 3 from Costa Rica's Superémonos (2000-2002, education sanctions not coded), and 1 from Panama's Red de Oportunidades (2006). These rows are **not imputed**: they remain missing, both in the downloadable dataset and in the charts under [Explore the Data](explorar.qmd), so as not to assign a conditionality level that the available information does not allow us to establish.
+Because of how the index is built (a geometric mean of three components, each sensitive to missing information), 14 of the 336 observations do not have a computable `stringency` value: 10 from Bolivia's Bono Juancito Pinto (2006-2015, monitoring frequency not coded), 3 from Costa Rica's Superémonos (2000-2002, education sanctions not coded), and 1 from Panama's Red de Oportunidades (2006). These rows are **not imputed**: they remain missing, both in the downloadable dataset and in the charts under [Explore the Data](explorar.qmd), so as not to assign a stringency level that the available information does not allow us to establish.
